@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+*.jsonl
+*.log
+logs/
+keyfile.json
+*service-account*.json
+*credentials*.json
+.ipynb_checkpoints/
+.DS_Store
