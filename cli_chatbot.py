@@ -16,18 +16,18 @@ class CLIChatbot:
         """Initialize CLI chatbot."""
         print(f"{Fore.CYAN}{'=' * 80}")
         print(f"{Fore.CYAN} GCP Cost Optimization Chatbot")
-        print(f"{Fore.CYAN}{'=' * 80}{Style.RESET_ALL}\\n")
+        print(f"{Fore.CYAN}{'=' * 80}{Style.RESET_ALL}\n")
 
         print(f"{Fore.YELLOW} Initializing...{Style.RESET_ALL}")
         self.chatbot = CostOptimizerChatbot()
         self.bq_client = BigQueryClient()
-        print(f"{Fore.GREEN} Ready!{Style.RESET_ALL}\\n")
+        print(f"{Fore.GREEN} Ready!{Style.RESET_ALL}\n")
 
     def show_dashboard(self):
         """Display dashboard."""
-        print(f"\\n{Fore.CYAN}{'=' * 80}")
+        print(f"\n{Fore.CYAN}{'=' * 80}")
         print(f"{Fore.CYAN} COST DASHBOARD")
-        print(f"{Fore.CYAN}{'=' * 80}{Style.RESET_ALL}\\n")
+        print(f"{Fore.CYAN}{'=' * 80}{Style.RESET_ALL}\n")
 
         total = self.bq_client.get_total_cost()
         projects = self.bq_client.get_project_breakdown()
@@ -35,10 +35,10 @@ class CLIChatbot:
 
         print(f"{Fore.GREEN} Total: ${total:,.2f}{Style.RESET_ALL}")
         print(f"{Fore.GREEN} Projects: {len(projects)}{Style.RESET_ALL}")
-        print(f"{Fore.GREEN} Services: {len(top)}{Style.RESET_ALL}\\n")
+        print(f"{Fore.GREEN} Services: {len(top)}{Style.RESET_ALL}\n")
 
         if top:
-            print(f"{Fore.YELLOW}Top Cost Drivers:{Style.RESET_ALL}\\n")
+            print(f"{Fore.YELLOW}Top Cost Drivers:{Style.RESET_ALL}\n")
             table = [
                 [i["service_description"], f"${float(i['total_cost']):,.2f}"]
                 for i in top
@@ -48,7 +48,7 @@ class CLIChatbot:
 
     def process_query(self, query: str):
         """Process query."""
-        print(f"\\n{Fore.CYAN}Query: {query}{Style.RESET_ALL}\\n")
+        print(f"\n{Fore.CYAN}Query: {query}{Style.RESET_ALL}\n")
 
         result = self.chatbot.process_query(query)
 
@@ -57,11 +57,11 @@ class CLIChatbot:
             print(f"{Fore.YELLOW}Summary:{Style.RESET_ALL}")
             print(f" Total: ${meta['total_cost']:,.2f}")
             print(f" Projects: {meta['total_projects']}")
-            print(f" Services: {meta['total_services']}\\n")
+            print(f" Services: {meta['total_services']}\n")
 
             print(f"{Fore.GREEN}{'=' * 80}")
             print("AI ANALYSIS")
-            print(f"{'=' * 80}{Style.RESET_ALL}\\n")
+            print(f"{'=' * 80}{Style.RESET_ALL}\n")
             print(result["analysis"])
         else:
             print(f"{Fore.RED}{result['message']}{Style.RESET_ALL}")
@@ -92,7 +92,7 @@ class CLIChatbot:
                     continue
 
                 if user_input.lower() in ["quit", "exit", "q"]:
-                    print(f"\\n{Fore.CYAN} Goodbye!{Style.RESET_ALL}\\n")
+                    print(f"\n{Fore.CYAN} Goodbye!{Style.RESET_ALL}\n")
                     break
 
                 elif user_input.lower() == "dashboard":
@@ -105,10 +105,10 @@ class CLIChatbot:
                     self.process_query(user_input)
 
             except KeyboardInterrupt:
-                print(f"\\n\\n{Fore.CYAN} Goodbye!{Style.RESET_ALL}\\n")
+                print(f"\n\n{Fore.CYAN} Goodbye!{Style.RESET_ALL}\n")
                 break
             except Exception as e:
-                print(f"\\n{Fore.RED}Error: {e}{Style.RESET_ALL}\\n")
+                print(f"\n{Fore.RED}Error: {e}{Style.RESET_ALL}\n")
 
 
 def main():
@@ -117,7 +117,7 @@ def main():
         cli = CLIChatbot()
         cli.run()
     except Exception as e:
-        print(f"\\n Fatal error: {e}\\n")
+        print(f"\n Fatal error: {e}\n")
         sys.exit(1)
 
 

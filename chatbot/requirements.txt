@@ -1,0 +1,4 @@
+google-cloud-bigquery>=3.25,<5
+python-dotenv>=1,<2
+Flask>=3,<4
+google-genai>=1,<3

@@ -7,11 +7,11 @@ class Config:
     """Application configuration."""
 
     PROJECT_ID = os.getenv("PROJECT_ID")
-    LOCATION = os.getenv("LOCATION", "us-central1")
+    LOCATION = os.getenv("LOCATION", "global")
     BIGQUERY_DATASET = os.getenv("BIGQUERY_DATASET", "billing_analysis")
     BIGQUERY_TABLE = os.getenv("BIGQUERY_TABLE", "gcp_cost_data")
 
-    GEMINI_MODEL = "gemini-2.5-flash"
+    GEMINI_MODEL = "gemini-3.5-flash"
     TEMPERATURE = 0.2
     MAX_OUTPUT_TOKENS = 2048
 

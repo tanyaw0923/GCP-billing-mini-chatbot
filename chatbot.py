@@ -59,14 +59,14 @@ class CostOptimizerChatbot:
         }
 
 if __name__ == "__main__":
-    print("\\nTesting Chatbot...\\n")
+    print("\nTesting Chatbot...\n")
     chatbot = CostOptimizerChatbot()
     result = chatbot.process_query("What are my top cost drivers?")
 
     if result["status"] == "success":
         print(f"Total: ${result['metadata']['total_cost']:,.2f}")
         print(f"Projects: {result['metadata']['total_projects']}")
-        print("\\n" + result["analysis"][:300] + "...")
-        print("\\nChatbot working!")
+        print("\n" + result["analysis"][:300] + "...")
+        print("\nChatbot working!")
     else:
         print(result["message"])
