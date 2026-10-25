@@ -18,7 +18,7 @@ class Config:
     @classmethod
     def get_table_id(cls):
         """Get fully qualified BigQuery table ID."""
-        return f"{cls.PROJECT_ID}.{cls.BIGQUERY_DATASET}.{cls.BIGQUERY_TABLE}"
+        return f"`{cls.PROJECT_ID}.{cls.BIGQUERY_DATASET}.{cls.BIGQUERY_TABLE}`"
 
     @classmethod
     def validate(cls):
